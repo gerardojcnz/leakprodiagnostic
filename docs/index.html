@@ -76,6 +76,7 @@
     align-items: center;
     gap: 0.7rem;
     text-decoration: none;
+    min-width: 0;
   }
   .nav-logo img.logo-icon {
     height: 68px;
@@ -88,6 +89,7 @@
     display: flex;
     flex-direction: column;
     line-height: 1.1;
+    min-width: 0;
   }
   .nav-logo-name {
     font-family: 'Cormorant Garamond', serif;
@@ -95,6 +97,9 @@
     font-weight: 600;
     letter-spacing: 0.02em;
     color: var(--cream);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .nav-logo-sub {
     font-family: 'Cormorant Garamond', serif;
@@ -791,11 +796,12 @@
 
   /* ── RESPONSIVE — Mobile (≤600px) ── */
   @media (max-width: 600px) {
-    nav { padding: 1rem 1.2rem; }
-    .nav-logo img.logo-icon { height: 44px; }
-    .nav-logo-name { font-size: 1.25rem; }
+    nav { padding: 0.85rem 1.2rem; }
+    .nav-logo { gap: 0.45rem; }
+    .nav-logo img.logo-icon { height: 40px; }
+    .nav-logo-name { font-size: 1.15rem; letter-spacing: 0.01em; }
     .nav-logo-sub { display: none; }
-    .nav-cta { padding: 0.5rem 1rem; font-size: 0.72rem; }
+    .nav-cta { padding: 0.45rem 0.9rem; font-size: 0.7rem; letter-spacing: 0.08em; flex-shrink: 0; }
 
     .hero {
       padding: 6.5rem 1.2rem 4rem;
@@ -855,8 +861,10 @@
 
   /* ── RESPONSIVE — Small Mobile (≤380px) ── */
   @media (max-width: 380px) {
-    .nav-logo-name { font-size: 1.1rem; }
-    .nav-logo img.logo-icon { height: 38px; }
+    .nav-logo { gap: 0.35rem; }
+    .nav-logo-name { font-size: 1rem; }
+    .nav-logo img.logo-icon { height: 34px; }
+    .nav-cta { padding: 0.4rem 0.75rem; font-size: 0.65rem; }
     .hero h1 { font-size: 2rem; }
     .hero-stats { gap: 1.5rem; }
     .stat-number { font-size: 1.9rem; }
