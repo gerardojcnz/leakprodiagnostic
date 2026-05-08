@@ -6,9 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a single-file static landing page for **LeakPro Diagnostic**, a pool leak detection and repair company serving Miami-Dade, Broward, and Palm Beach counties in South Florida.
 
-**Single file:** `leakpro-landing.html` — contains all HTML, CSS, and JavaScript inline. No build tools, no dependencies, no package manager.
+**Single file:** `docs/index.html` — contains all HTML, CSS, and JavaScript inline. No build tools, no dependencies, no package manager.
 
-**To preview:** Open `leakpro-landing.html` directly in a browser.
+**To preview:** Open `docs/index.html` directly in a browser, or use Live Server in VS Code.
 
 ## Architecture
 
