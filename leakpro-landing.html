@@ -761,8 +761,7 @@
     nav { padding: 1.2rem 1.5rem; }
     .nav-links { display: none; }
     section { padding: 4rem 1.5rem; }
-    .hero { padding: 7rem 1.5rem 4rem; }
-    .hero-stats { right: 1.5rem; bottom: 2rem; gap: 2rem; }
+    .hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
     .hero-logo-visual { display: none; }
     .about-split, .contact-section { grid-template-columns: 1fr; gap: 3rem; }
     .about-visual { height: 280px; }
@@ -776,6 +775,18 @@
     .reviews-header { gap: 1.5rem; }
     .nav-logo-name { font-size: 1.5rem; }
     .nav-logo img.logo-icon { height: 52px; }
+
+    .hero-stats {
+      position: relative;
+      right: auto; bottom: auto;
+      display: flex;
+      justify-content: flex-start;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: left; }
+    .stat-number { font-size: 2.4rem; }
   }
 
   /* ── RESPONSIVE — Mobile (≤600px) ── */
@@ -787,7 +798,7 @@
     .nav-cta { padding: 0.5rem 1rem; font-size: 0.72rem; }
 
     .hero {
-      padding: 6.5rem 1.2rem 10rem;
+      padding: 6.5rem 1.2rem 4rem;
       min-height: auto;
     }
     .hero h1 { font-size: clamp(2.2rem, 9vw, 3.2rem); margin-bottom: 1.2rem; }
@@ -850,6 +861,68 @@
     .hero-stats { gap: 1.5rem; }
     .stat-number { font-size: 1.9rem; }
     .google-badge-score { font-size: 1.8rem; }
+  }
+
+  /* ── RESPONSIVE — Mobile Landscape (altura ≤500px, cualquier ancho) ── */
+  @media (max-height: 500px) and (orientation: landscape) {
+    nav { padding: 0.6rem 1.5rem; }
+    .nav-logo img.logo-icon { height: 36px; }
+    .nav-logo-name { font-size: 1.1rem; }
+    .nav-logo-sub { display: none; }
+    .nav-cta { padding: 0.4rem 1rem; font-size: 0.7rem; }
+
+    .hero {
+      min-height: unset;
+      padding: 5rem 1.5rem 2.5rem;
+      align-items: flex-start;
+    }
+    .hero h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 0.8rem; }
+    .hero p { font-size: 0.85rem; margin-bottom: 1.2rem; line-height: 1.5; }
+    .hero-badge { margin-bottom: 1rem; }
+    .hero-actions { gap: 0.8rem; }
+    .btn-primary { padding: 0.65rem 1.4rem; font-size: 0.78rem; }
+
+    .hero-stats {
+      position: relative;
+      right: auto; bottom: auto;
+      display: flex;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .stat-number { font-size: 1.8rem; }
+    .stat-label { font-size: 0.65rem; }
+
+    section { padding: 2.5rem 1.5rem; }
+    .reviews-section { padding: 2.5rem 1.5rem; }
+    footer { padding: 1.2rem 1.5rem; }
+  }
+
+  /* ── RESPONSIVE — Tablet Landscape (ancho 600–900px, altura ≤600px) ── */
+  @media (min-width: 601px) and (max-width: 900px) and (orientation: landscape) {
+    nav { padding: 0.8rem 2rem; }
+    .nav-logo img.logo-icon { height: 44px; }
+    .nav-logo-name { font-size: 1.3rem; }
+
+    .hero {
+      min-height: unset;
+      padding: 5.5rem 2rem 3rem;
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 1rem; }
+    .hero p { font-size: 0.9rem; margin-bottom: 1.6rem; }
+
+    .hero-stats {
+      right: 2rem;
+      bottom: 1.5rem;
+      gap: 1.5rem;
+    }
+    .stat-number { font-size: 2rem; }
+
+    .about-split { grid-template-columns: 1fr 1fr; }
+    .about-visual { height: 220px; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
