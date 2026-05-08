@@ -752,185 +752,234 @@
     transform: translateY(28px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
 
-  /* ── RESPONSIVE — Tablet (≤900px) ── */
-  @media (max-width: 900px) {
-    nav { padding: 1.2rem 1.5rem; }
-    .nav-links { display: none; }
-    section { padding: 4rem 1.5rem; }
-    .hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
-    .hero-logo-visual { display: none; }
-    .about-split, .contact-section { grid-template-columns: 1fr; gap: 3rem; }
-    .about-visual { height: 280px; }
-    .about-pill { display: none; }
-    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .process-steps::before { display: none; }
-    .divider { margin: 0 1.5rem; }
-    footer { padding: 2rem 1.5rem; }
-    .reviews-section { padding: 4rem 1.5rem; }
-    .reviews-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .reviews-header { gap: 1.5rem; }
-    .nav-logo-name { font-size: 1.5rem; }
-    .nav-logo img.logo-icon { height: 52px; }
+  /* ════════════════════════════════════════════
+     RESPONSIVE SYSTEM
+     Variables de padding horizontal por nivel:
+       Desktop  (>900px)  : 4rem
+       Tablet   (≤900px)  : 2rem
+       Mobile   (≤600px)  : 1.25rem
+       Landscape mobile   : 1.5rem
+     ════════════════════════════════════════════ */
 
+  /* ── TABLET PORTRAIT — ≤900px ── */
+  @media (max-width: 900px) {
+    /* Nav */
+    nav { padding: 1rem 2rem; }
+    .nav-links { display: none; }
+    .nav-logo img.logo-icon { height: 50px; }
+    .nav-logo-name { font-size: 1.45rem; }
+
+    /* Hero */
+    .hero { padding: 6.5rem 2rem 4rem; min-height: auto; }
+    .hero-logo-visual { display: none; }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+    .hero p { font-size: 0.95rem; }
     .hero-stats {
       position: relative;
       right: auto; bottom: auto;
       display: flex;
       justify-content: flex-start;
-      gap: 2rem;
-      margin-top: 2.5rem;
+      gap: 2.5rem;
+      margin-top: 3rem;
       flex-wrap: wrap;
     }
     .stat { text-align: left; }
     .stat-number { font-size: 2.4rem; }
+
+    /* Sections */
+    section { padding: 5rem 2rem; }
+    .divider { margin: 0 2rem; }
+
+    /* About */
+    .about-split { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-visual { height: 300px; }
+    .about-pill { display: none; }
+    .about-accent { display: none; }
+    .about-text { padding-right: 0; }
+
+    /* Process */
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
+    .process-steps::before { display: none; }
+    .step { padding: 0 0.5rem; }
+
+    /* Reviews */
+    .reviews-section { padding: 5rem 2rem; }
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .reviews-header { gap: 1.5rem; }
+
+    /* Contact */
+    .contact-section { grid-template-columns: 1fr; gap: 3rem; }
+
+    /* Footer */
+    footer { padding: 2rem 2rem; }
   }
 
-  /* ── RESPONSIVE — Mobile (≤600px) ── */
+  /* ── MOBILE PORTRAIT — ≤600px ── */
   @media (max-width: 600px) {
-    nav { padding: 0.85rem 1.2rem; }
-    .nav-logo { gap: 0.45rem; }
-    .nav-logo img.logo-icon { height: 40px; }
-    .nav-logo-name { font-size: 1.15rem; letter-spacing: 0.01em; }
+    /* Nav */
+    nav { padding: 0.8rem 1.25rem; }
+    .nav-logo { gap: 0.5rem; }
+    .nav-logo img.logo-icon { height: 42px; }
+    .nav-logo-name { font-size: 1.2rem; }
     .nav-logo-sub { display: none; }
-    .nav-cta { padding: 0.45rem 0.9rem; font-size: 0.7rem; letter-spacing: 0.08em; flex-shrink: 0; }
+    .nav-cta { padding: 0.5rem 1rem; font-size: 0.72rem; letter-spacing: 0.07em; flex-shrink: 0; }
+
+    /* Hero */
+    .hero { padding: 6rem 1.25rem 3.5rem; min-height: auto; }
+    .hero h1 { font-size: clamp(2rem, 10vw, 2.8rem); margin-bottom: 1rem; line-height: 1.1; }
+    .hero p { font-size: 0.9rem; margin-bottom: 1.8rem; line-height: 1.7; }
+    .hero-badge { font-size: 0.62rem; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+    .hero-actions { flex-direction: column; align-items: stretch; gap: 1rem; }
+    .btn-primary { width: 100%; justify-content: center; padding: 0.95rem 1.5rem; }
+    .btn-secondary { justify-content: center; }
+    .hero-stats {
+      position: relative;
+      right: auto; bottom: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      flex-wrap: nowrap;
+    }
+    .stat { text-align: left; flex: 1; }
+    .stat-number { font-size: 2rem; }
+    .stat-label { font-size: 0.62rem; }
+
+    /* Sections */
+    section { padding: 3.5rem 1.25rem; }
+    .section-title { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+    .section-sub { font-size: 0.88rem; }
+    .divider { margin: 0 1.25rem; }
+
+    /* Services */
+    .services-grid { grid-template-columns: 1fr; margin-top: 2.5rem; }
+    .service-card { padding: 2rem 1.5rem; }
+
+    /* About */
+    .about-visual { height: 240px; }
+
+    /* Process */
+    .process-steps { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    .step { padding: 0; }
+    .step-num { margin-bottom: 1rem; }
+
+    /* Reviews */
+    .reviews-section { padding: 3.5rem 1.25rem; }
+    .reviews-grid { grid-template-columns: 1fr; gap: 0.9rem; }
+    .reviews-header { flex-direction: column; align-items: center; gap: 1rem; }
+    .google-badge { padding: 0.9rem 1.2rem; width: 100%; justify-content: center; }
+
+    /* Contact */
+    .contact-section { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .areas { gap: 0.5rem; margin-top: 1.5rem; }
+    .area-pill { font-size: 0.75rem; padding: 0.5rem 1rem; }
+
+    /* Footer */
+    footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 1.5rem 1.25rem;
+      font-size: 0.72rem;
+    }
+    footer div:last-child { flex-wrap: wrap; gap: 0.6rem 1rem; }
+  }
+
+  /* ── SMALL MOBILE — ≤380px ── */
+  @media (max-width: 380px) {
+    nav { padding: 0.75rem 1rem; }
+    .nav-logo { gap: 0.35rem; }
+    .nav-logo img.logo-icon { height: 36px; }
+    .nav-logo-name { font-size: 1.05rem; }
+    .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.65rem; }
+    .hero { padding: 5.5rem 1rem 3rem; }
+    .hero h1 { font-size: 1.9rem; }
+    .hero-stats { gap: 0.75rem; }
+    .stat-number { font-size: 1.8rem; }
+    .google-badge-score { font-size: 1.8rem; }
+    section { padding: 3rem 1rem; }
+    .reviews-section { padding: 3rem 1rem; }
+    .divider { margin: 0 1rem; }
+    footer { padding: 1.25rem 1rem; }
+  }
+
+  /* ── MOBILE LANDSCAPE — altura ≤500px ── */
+  @media (max-height: 500px) and (orientation: landscape) {
+    nav { padding: 0.5rem 1.5rem; }
+    .nav-logo img.logo-icon { height: 34px; }
+    .nav-logo-name { font-size: 1.05rem; }
+    .nav-logo-sub { display: none; }
+    .nav-cta { padding: 0.4rem 0.9rem; font-size: 0.68rem; }
 
     .hero {
-      padding: 6.5rem 1.2rem 4rem;
-      min-height: auto;
+      min-height: unset;
+      padding: 4.5rem 1.5rem 2rem;
+      align-items: flex-start;
     }
-    .hero h1 { font-size: clamp(2.2rem, 9vw, 3.2rem); margin-bottom: 1.2rem; }
-    .hero p { font-size: 0.92rem; margin-bottom: 2rem; }
-    .hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
-    .btn-primary { width: 100%; justify-content: center; padding: 0.9rem 1.5rem; }
-    .hero-badge { font-size: 0.65rem; letter-spacing: 0.12em; }
+    .hero h1 { font-size: clamp(1.6rem, 4.5vw, 2.4rem); margin-bottom: 0.6rem; line-height: 1.1; }
+    .hero p { font-size: 0.83rem; margin-bottom: 1rem; line-height: 1.5; }
+    .hero-badge { margin-bottom: 0.8rem; font-size: 0.6rem; }
+    .hero-actions { flex-direction: row; gap: 1rem; }
+    .btn-primary { width: auto; padding: 0.6rem 1.3rem; font-size: 0.75rem; }
+    .hero-stats {
+      position: relative;
+      right: auto; bottom: auto;
+      display: flex;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .stat-number { font-size: 1.6rem; }
+    .stat-label { font-size: 0.6rem; }
 
+    section { padding: 2.5rem 1.5rem; }
+    .reviews-section { padding: 2.5rem 1.5rem; }
+    .about-visual { height: 200px; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-section { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    footer { padding: 1.2rem 1.5rem; }
+    .divider { margin: 0 1.5rem; }
+  }
+
+  /* ── TABLET LANDSCAPE — 601px–1024px ancho, orientation landscape ── */
+  @media (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
+    nav { padding: 0.9rem 2rem; }
+    .nav-logo img.logo-icon { height: 46px; }
+    .nav-logo-name { font-size: 1.35rem; }
+
+    .hero { padding: 5.5rem 2rem 3rem; min-height: auto; }
+    .hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 1rem; }
+    .hero p { font-size: 0.9rem; margin-bottom: 1.5rem; }
     .hero-stats {
       position: relative;
       right: auto; bottom: auto;
       display: flex;
       justify-content: flex-start;
       gap: 2rem;
-      margin-top: 2.5rem;
+      margin-top: 2rem;
       flex-wrap: wrap;
     }
     .stat { text-align: left; }
-    .stat-number { font-size: 2.2rem; }
-
-    section { padding: 3rem 1.2rem; }
-    .section-title { font-size: clamp(1.7rem, 6vw, 2.4rem); }
-
-    .services-grid { grid-template-columns: 1fr; }
-    .service-card { padding: 2rem 1.5rem; }
-
-    .about-visual { height: 220px; }
-    .about-accent { display: none; }
-
-    .process-steps { grid-template-columns: 1fr; gap: 1.5rem; }
-    .step { padding: 0; }
-
-    .reviews-section { padding: 3rem 1.2rem; }
-    .reviews-grid { grid-template-columns: 1fr; }
-    .reviews-header { flex-direction: column; align-items: center; gap: 1.2rem; }
-    .google-badge { padding: 0.8rem 1.2rem; }
-
-    .contact-section { grid-template-columns: 1fr; gap: 2.5rem; }
-    .form-row { grid-template-columns: 1fr; }
-    .areas { gap: 0.6rem; }
-    .area-pill { font-size: 0.76rem; padding: 0.5rem 1rem; }
-
-    footer {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.8rem;
-      padding: 1.8rem 1.2rem;
-      font-size: 0.72rem;
-    }
-    footer div:last-child { flex-wrap: wrap; gap: 0.8rem 1.2rem; }
-
-    .divider { margin: 0 1.2rem; }
-  }
-
-  /* ── RESPONSIVE — Small Mobile (≤380px) ── */
-  @media (max-width: 380px) {
-    .nav-logo { gap: 0.35rem; }
-    .nav-logo-name { font-size: 1rem; }
-    .nav-logo img.logo-icon { height: 34px; }
-    .nav-cta { padding: 0.4rem 0.75rem; font-size: 0.65rem; }
-    .hero h1 { font-size: 2rem; }
-    .hero-stats { gap: 1.5rem; }
-    .stat-number { font-size: 1.9rem; }
-    .google-badge-score { font-size: 1.8rem; }
-  }
-
-  /* ── RESPONSIVE — Mobile Landscape (altura ≤500px, cualquier ancho) ── */
-  @media (max-height: 500px) and (orientation: landscape) {
-    nav { padding: 0.6rem 1.5rem; }
-    .nav-logo img.logo-icon { height: 36px; }
-    .nav-logo-name { font-size: 1.1rem; }
-    .nav-logo-sub { display: none; }
-    .nav-cta { padding: 0.4rem 1rem; font-size: 0.7rem; }
-
-    .hero {
-      min-height: unset;
-      padding: 5rem 1.5rem 2.5rem;
-      align-items: flex-start;
-    }
-    .hero h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 0.8rem; }
-    .hero p { font-size: 0.85rem; margin-bottom: 1.2rem; line-height: 1.5; }
-    .hero-badge { margin-bottom: 1rem; }
-    .hero-actions { gap: 0.8rem; }
-    .btn-primary { padding: 0.65rem 1.4rem; font-size: 0.78rem; }
-
-    .hero-stats {
-      position: relative;
-      right: auto; bottom: auto;
-      display: flex;
-      justify-content: flex-start;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .stat-number { font-size: 1.8rem; }
-    .stat-label { font-size: 0.65rem; }
-
-    section { padding: 2.5rem 1.5rem; }
-    .reviews-section { padding: 2.5rem 1.5rem; }
-    footer { padding: 1.2rem 1.5rem; }
-  }
-
-  /* ── RESPONSIVE — Tablet Landscape (ancho 600–900px, altura ≤600px) ── */
-  @media (min-width: 601px) and (max-width: 900px) and (orientation: landscape) {
-    nav { padding: 0.8rem 2rem; }
-    .nav-logo img.logo-icon { height: 44px; }
-    .nav-logo-name { font-size: 1.3rem; }
-
-    .hero {
-      min-height: unset;
-      padding: 5.5rem 2rem 3rem;
-    }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 1rem; }
-    .hero p { font-size: 0.9rem; margin-bottom: 1.6rem; }
-
-    .hero-stats {
-      right: 2rem;
-      bottom: 1.5rem;
-      gap: 1.5rem;
-    }
     .stat-number { font-size: 2rem; }
 
-    .about-split { grid-template-columns: 1fr 1fr; }
-    .about-visual { height: 220px; }
-    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 4rem 2rem; }
+    .reviews-section { padding: 4rem 2rem; }
+    .about-split { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .about-visual { height: 260px; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
     .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-section { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    footer { padding: 2rem; }
+    .divider { margin: 0 2rem; }
   }
 </style>
 </head>
