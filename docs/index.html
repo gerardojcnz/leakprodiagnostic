@@ -82,7 +82,7 @@
     min-width: 0;
   }
   .nav-logo img.logo-icon {
-    height: 68px;
+    height: 90px;
     width: auto;
     flex-shrink: 0;
     mix-blend-mode: lighten;
@@ -244,8 +244,10 @@
   /* Logo móvil — oculto en desktop, visible debajo de stats en móvil/tablet portrait */
   .hero-logo-mobile {
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0.9rem;
     margin-top: 3rem;
     padding-top: 2.5rem;
     border-top: 1px solid var(--glass-border);
@@ -255,6 +257,15 @@
     height: auto;
     mix-blend-mode: lighten;
     filter: brightness(1.05) drop-shadow(0 0 50px rgba(47,184,198,0.2));
+  }
+  .hero-logo-mobile-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
   }
 
   .hero-stats {
@@ -795,7 +806,7 @@
     :root { --px: 2rem; }
 
     .nav-links { display: none; }
-    .nav-logo img.logo-icon { height: 48px; }
+    .nav-logo img.logo-icon { height: 64px; }
     .nav-logo-name { font-size: 1.4rem; }
 
     .hero { padding-top: 6rem; padding-bottom: 4rem; }
@@ -826,7 +837,7 @@
 
     nav { padding-top: 0.75rem; padding-bottom: 0.75rem; }
     .nav-logo { gap: 0.5rem; }
-    .nav-logo img.logo-icon { height: 40px; }
+    .nav-logo img.logo-icon { height: 54px; }
     .nav-logo-name { font-size: 1.15rem; }
     .nav-logo-sub { display: none; }
     .nav-cta { padding: 0.5rem 0.9rem; font-size: 0.7rem; letter-spacing: 0.06em; flex-shrink: 0; }
@@ -874,7 +885,7 @@
   @media (max-width: 380px) {
     :root { --px: 1rem; }
 
-    .nav-logo img.logo-icon { height: 34px; }
+    .nav-logo img.logo-icon { height: 46px; }
     .nav-logo-name { font-size: 1rem; }
     .nav-cta { padding: 0.4rem 0.75rem; font-size: 0.64rem; }
 
@@ -889,7 +900,7 @@
     :root { --px: 1.5rem; }
 
     nav { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-    .nav-logo img.logo-icon { height: 32px; }
+    .nav-logo img.logo-icon { height: 44px; }
     .nav-logo-name { font-size: 1rem; }
     .nav-logo-sub { display: none; }
     .nav-cta { padding: 0.35rem 0.85rem; font-size: 0.66rem; }
@@ -920,7 +931,7 @@
   @media (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
     :root { --px: 2rem; }
 
-    .nav-logo img.logo-icon { height: 44px; }
+    .nav-logo img.logo-icon { height: 58px; }
     .nav-logo-name { font-size: 1.3rem; }
 
     .hero { padding-top: 5.5rem; padding-bottom: 3rem; }
@@ -1003,6 +1014,7 @@
     <!-- Logo visible solo en móvil/tablet portrait, debajo de las stats -->
     <div class="hero-logo-mobile">
       <img src="logo leakpro.png" alt="LeakPro Diagnostic"/>
+      <span class="hero-logo-mobile-tagline">Expert eyes for hidden leaks</span>
     </div>
   </div>
 </section>
