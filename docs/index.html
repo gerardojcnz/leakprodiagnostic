@@ -241,9 +241,20 @@
     filter: brightness(1.05) drop-shadow(0 0 60px rgba(47,184,198,0.15));
   }
 
-  /* Bloque móvil del logo — oculto en desktop, visible en móvil arriba del hero */
+  /* Logo móvil — oculto en desktop, visible debajo de stats en móvil/tablet portrait */
   .hero-logo-mobile {
     display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--glass-border);
+  }
+  .hero-logo-mobile img {
+    width: clamp(200px, 55vw, 300px);
+    height: auto;
+    mix-blend-mode: lighten;
+    filter: brightness(1.05) drop-shadow(0 0 50px rgba(47,184,198,0.2));
   }
 
   .hero-stats {
@@ -787,19 +798,9 @@
     .nav-logo img.logo-icon { height: 48px; }
     .nav-logo-name { font-size: 1.4rem; }
 
-    .hero { padding-top: 6rem; padding-bottom: 3.5rem; }
+    .hero { padding-top: 6rem; padding-bottom: 4rem; }
     .hero-logo-visual { display: none; }
-    .hero-logo-mobile {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .hero-logo-mobile img {
-      width: clamp(160px, 40vw, 240px);
-      height: auto;
-      mix-blend-mode: lighten;
-      filter: brightness(1.05) drop-shadow(0 0 40px rgba(47,184,198,0.2));
-    }
+    .hero-logo-mobile { display: flex; }
     .hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.8rem); }
     .hero-stats { gap: 2rem; margin-top: 2.5rem; }
     .stat-number { font-size: 2.2rem; }
@@ -830,13 +831,8 @@
     .nav-logo-sub { display: none; }
     .nav-cta { padding: 0.5rem 0.9rem; font-size: 0.7rem; letter-spacing: 0.06em; flex-shrink: 0; }
 
-    .hero { padding-top: 6.5rem; padding-bottom: 3rem; }
-    .hero-logo-mobile {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .hero-logo-mobile img { width: clamp(160px, 45vw, 220px); }
+    .hero { padding-top: 5.5rem; padding-bottom: 3.5rem; }
+    .hero-logo-mobile img { width: clamp(180px, 60vw, 260px); }
     .hero h1 { font-size: clamp(1.9rem, 9vw, 2.6rem); margin-bottom: 1rem; line-height: 1.08; }
     .hero p { font-size: 0.88rem; margin-bottom: 1.6rem; line-height: 1.65; }
     .hero-badge { font-size: 0.6rem; letter-spacing: 0.09em; margin-bottom: 1.2rem; }
@@ -976,10 +972,6 @@
   </div>
 
   <div class="hero-inner">
-    <!-- Logo visible solo en móvil/tablet, encima del contenido del hero -->
-    <div class="hero-logo-mobile">
-      <img src="logo leakpro.png" alt="LeakPro Diagnostic"/>
-    </div>
     <div class="hero-badge">Available in Miami-Dade · Broward · Palm Beach</div>
     <h1>
       We Find Every<br/>
@@ -1007,6 +999,10 @@
         <div class="stat-number">3</div>
         <div class="stat-label">Counties Covered</div>
       </div>
+    </div>
+    <!-- Logo visible solo en móvil/tablet portrait, debajo de las stats -->
+    <div class="hero-logo-mobile">
+      <img src="logo leakpro.png" alt="LeakPro Diagnostic"/>
     </div>
   </div>
 </section>
